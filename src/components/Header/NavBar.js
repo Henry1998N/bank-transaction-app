@@ -17,17 +17,17 @@ export default function NavBar({ balance }) {
       <Container>
         <Navbar.Brand>Expense Tracker</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link>
-            <Link to="/">Transactions</Link>
-          </Nav.Link>
+          <Navbar.Brand as={Link} to="/">
+            Transactions
+          </Navbar.Brand>
 
-          <Nav.Link to="/operations">
-            <Link to="/operations">Operations</Link>
-          </Nav.Link>
+          <Navbar.Brand as={Link} to="/operations">
+            Operations
+          </Navbar.Brand>
 
-          <Nav.Link>
-            <Link to="/breakDowns">Breakdown</Link>
-          </Nav.Link>
+          <Navbar.Brand as={Link} to="/breakDowns">
+            Breakdown
+          </Navbar.Brand>
         </Nav>
         <div>
           <h3>

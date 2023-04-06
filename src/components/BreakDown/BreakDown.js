@@ -2,6 +2,7 @@ import React from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 
 export default function BreakDown({ BreakDownInfo }) {
+  ///todo : separate to functions file
   const colorsArr = [
     "primary",
     "secondary",

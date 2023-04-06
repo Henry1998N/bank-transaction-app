@@ -1,7 +1,13 @@
 import React from "react";
-import Transaction from "./transaction";
+import Transaction from "./Transaction";
 
 export default function Transactions({ transactions, deleteTransaction }) {
+  const getCardColorByTransactionAmount = function (amount) {
+    if (amount < 0) {
+      return "dangerBackGround";
+    }
+    return "successBackGround";
+  };
   return (
     <div>
       {transactions.map((transaction) => {
@@ -10,6 +16,7 @@ export default function Transactions({ transactions, deleteTransaction }) {
             key={transaction._id}
             transaction={transaction}
             deleteTransaction={deleteTransaction}
+            classN={getCardColorByTransactionAmount(transaction.amount)}
           />
         );
       })}

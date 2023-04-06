@@ -10,7 +10,7 @@ router.get("/balance", async function (req, res) {
   let balance = await BankFunctions.getBalance();
   res.send({ balance: balance });
 });
-router.post("/transaction", function (req, res) {
+router.post("/transactions", function (req, res) {
   const transaction = req.body.newTransaction;
   const newTransaction = new Transaction({
     amount: transaction.amount,
@@ -28,7 +28,7 @@ router.delete("/transaction/:transactionId", function (req, res) {
     return;
   });
 });
-router.get("/categoryTransactions", function (req, res) {
+router.get("/breakdown", function (req, res) {
   Transaction.aggregate([
     { $group: { _id: "$category", totalAmount: { $sum: "$amount" } } },
   ]).then((transactionSum) => {

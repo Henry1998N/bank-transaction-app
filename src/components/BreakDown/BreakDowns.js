@@ -3,18 +3,16 @@ import ListGroup from "react-bootstrap/ListGroup";
 import BreakDown from "./BreakDown";
 import Badge from "react-bootstrap/Badge";
 import Card from "react-bootstrap/Card";
-
+import "./breakDown.css";
 export default function BreakDowns({ breakDowns }) {
   return (
     <div className="App">
       <Card>
         <div>
           <Card.Header>
-            <h3>
-              <Badge bg={"secondary"}>
-                <b>BreakDown</b>
-              </Badge>
-            </h3>
+            <Badge className="badge" bg={"secondary"}>
+              <b>BreakDown</b>
+            </Badge>
           </Card.Header>
         </div>
         <Card.Body>

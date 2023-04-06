@@ -1,6 +1,6 @@
 .dangerBackGround {
-  background-color: #ff6b6b;
+  background-color: #ff6b6b !important;
 }
 .successBackGround {
-  background-color: #1dd1a1;
+  background-color: #1dd1a1 !important;
 }

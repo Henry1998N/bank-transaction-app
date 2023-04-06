@@ -5,14 +5,13 @@ import { BrowserRouter as Redirect } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 
 export default function Operation({ addTransaction }) {
-  const [category, setCategory] = useState("");
-  const [vendor, setVendor] = useState("");
+  const [category, setCategory] = useState(null);
+  const [vendor, setVendor] = useState(null);
   const [amount, setAmount] = useState(null);
 
   const addTransactionByInputsValue = function () {
     let newTransaction = { amount, category, vendor };
     addTransaction(newTransaction);
-    <Redirect to="/" />;
   };
   return (
     <div className="App">

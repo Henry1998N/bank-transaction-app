@@ -1,19 +1,12 @@
 const express = require("express");
 const app = express();
-const path = require("path");
 const PORT = 3007;
-const mongoose = require("mongoose");
 const bankApi = require("./server/routes/bankApi");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(express.static(path.join(__dirname, "dist")));
-// app.use(express.static(path.join(__dirname, "node_modules")));
-
-mongoose
-  .connect("mongodb://127.0.0.1:27017/Bank", {
-    useNewUrlParser: true,
-  })
-  .catch((err) => console.log(err));
+const dataBaseModule = require("./server/utilities/databaseManager");
+const dataBaseManager = new dataBaseModule();
+dataBaseManager.connectMongo();
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");

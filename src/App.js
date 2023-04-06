@@ -19,6 +19,9 @@ function App() {
     const response = await axios.delete(
       `http://localhost:3007/transaction/${transactionId}`
     );
+    getTransactionsByCategory();
+    getTransactionsFromDB();
+    getBalance();
     response.then(() => {
       alert("deleted");
     });
@@ -28,26 +31,24 @@ function App() {
     setTransactions(response.data);
   };
   const addTransaction = async function (newTransaction) {
-    const response = axios.post("http://localhost:3007/transaction", {
+    const response = axios.post("http://localhost:3007/transactions", {
       newTransaction,
     });
     response
       .then((res) => {
         alert("added");
+        getTransactionsByCategory();
         getTransactionsFromDB();
+        getBalance();
       })
       .catch((err) => alert("error"));
   };
   const getTransactionsByCategory = async function () {
-    const response = await axios.get(
-      "http://localhost:3007/categoryTransactions"
-    );
+    const response = await axios.get("http://localhost:3007/breakdown");
     setBreakDowns(response.data);
   };
   useEffect(() => {
     getTransactionsByCategory();
-  }, []);
-  useEffect(() => {
     getTransactionsFromDB();
     getBalance();
   }, []);
